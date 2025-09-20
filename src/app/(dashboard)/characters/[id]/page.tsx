@@ -1,4 +1,3 @@
-// src/app/(dashboard)/characters/[id]/page.tsx
 import { auth } from "~/server/auth";
 import { redirect, notFound } from "next/navigation";
 import CharacterViewEdit from "~/app/_components/CharacterViewEdit";

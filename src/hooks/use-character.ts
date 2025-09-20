@@ -1,4 +1,3 @@
-// src/hooks/use-character.ts
 import { useCharacterUIStore } from '~/stores/character-store';
 import { useUIStore } from '~/stores/ui-store';
 import { api } from '~/trpc/react';

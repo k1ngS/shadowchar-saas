@@ -99,12 +99,6 @@ export default async function CharactersPage() {
                 >
                   Ver
                 </Link>
-                <Link
-                  href={`/characters/${character.id}/edit`}
-                  className="flex-1 bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded text-center transition text-white"
-                >
-                  Editar
-                </Link>
               </div>
             </div>
           ))}

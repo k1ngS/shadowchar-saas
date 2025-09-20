@@ -1,4 +1,3 @@
-// src/app/(dashboard)/characters/[id]/_components/CharacterViewer.tsx
 "use client";
 
 import Link from "next/link";

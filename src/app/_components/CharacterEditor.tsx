@@ -1,4 +1,3 @@
-// src/app/(dashboard)/characters/[id]/_components/CharacterEditor.tsx
 "use client";
 
 import { useCharacter } from '~/hooks/use-character';
