@@ -2,15 +2,22 @@
 
 import Link from "next/link";
 import { useCharacter } from '~/hooks/use-character';
+import EquipmentViewer from "./EquipmentViewer";
+import TalentsViewer from "./TalentsViewer";
+import SpellsViewer from "./SpellsViewer";
 
 interface CharacterViewerProps {
   characterId: number;
 }
 
 export default function CharacterViewer({ characterId }: CharacterViewerProps) {
-  const { character, enterEditMode } = useCharacter(characterId); // ✅ Agora funciona
+  const { character, enterEditMode } = useCharacter(characterId);
 
   if (!character) return null;
+
+  const talents = Array.isArray(character.talents) ? character.talents : [];
+  const spells = Array.isArray(character.spells) ? character.spells : [];
+  const equipment = Array.isArray(character.equipment) ? character.equipment : [];
 
   return (
    <div className="container mx-auto px-4 py-8">
@@ -59,6 +66,12 @@ export default function CharacterViewer({ characterId }: CharacterViewerProps) {
             </div>
           </div>
 
+          {/* ✅ Talentos */}
+          <TalentsViewer talents={talents} />
+
+          {/* ✅ Magias */}
+          <SpellsViewer spells={spells} />
+
           {/* Background */}
           {character.background && (
             <div className="bg-gray-800 rounded-lg p-6">
@@ -100,6 +113,9 @@ export default function CharacterViewer({ characterId }: CharacterViewerProps) {
               </div>
             </div>
           </div>
+
+          {/* ✅ Equipamentos */}
+          <EquipmentViewer equipment={equipment} />
         </div>
       </div>
     </div>

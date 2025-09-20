@@ -1,6 +1,9 @@
 "use client";
 
 import { useCharacter } from '~/hooks/use-character';
+import TalentsSection from './TalentsSection';
+import SpellsSection from './SpellsSection';
+import EquipmentSection from './EquipmentsSection';
 
 interface CharacterEditorProps {
   characterId: number;
@@ -193,6 +196,12 @@ export default function CharacterEditor({ characterId }: CharacterEditorProps) {
                 Personagem público
               </label>
             </div>
+
+            <TalentsSection />
+
+            <SpellsSection />
+
+            <EquipmentSection />
           </div>
         </div>
       </div>
