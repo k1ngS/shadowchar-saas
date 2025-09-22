@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import { api } from "~/trpc/server";
 import Link from "next/link";
 import DiceRoller from "~/app/_components/dice/DiceRoller";
+import DiceTesterPage from "../dice-tester/page";
+import { Dice1Icon } from "lucide-react";
 
 export default async function DashboardPage() {
   const session = await auth();
@@ -51,7 +53,7 @@ export default async function DashboardPage() {
       {/* Ações Rápidas */}
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-4 text-white">Ações Rápidas</h2>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 items-center">
           <Link
             href="/characters/new"
             className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold transition text-white"
@@ -64,7 +66,16 @@ export default async function DashboardPage() {
           >
             + Nova Campanha
           </Link>
+
+          {/* Roladores de Dados */}
+          <Link
+            href="/dice-tester"
+            className="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-semibold transition text-white flex items-center gap-2"
+          >
+            <Dice1Icon /> Testador de Dados
+          </Link>
         </div>
+
       </div>
 
       {/* Lista de Personagens */}
