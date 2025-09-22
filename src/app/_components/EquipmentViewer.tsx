@@ -1,5 +1,7 @@
 "use client";
 
+import DiceRoller from "./dice/DiceRoller";
+
 interface Equipment {
   id: string;
   name: string;
@@ -100,6 +102,11 @@ export default function EquipmentViewer({ equipment }: EquipmentViewerProps) {
                     x{item.quantity}
                   </span>
                 )}
+                <DiceRoller
+                  sides={8} // d8 para uma espada longa, por exemplo
+                  modifier={item.bonus || 0}
+                  label={`Ataque: ${item.name}`}
+                />
               </div>
 
               <div className="text-xs text-gray-400">

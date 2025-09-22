@@ -5,6 +5,9 @@ import { useCharacter } from '~/hooks/use-character';
 import EquipmentViewer from "./EquipmentViewer";
 import TalentsViewer from "./TalentsViewer";
 import SpellsViewer from "./SpellsViewer";
+import DiceRoller from "./dice/DiceRoller";
+import { useUIStore } from "~/stores/ui-store";
+
 
 interface CharacterViewerProps {
   characterId: number;
@@ -12,6 +15,7 @@ interface CharacterViewerProps {
 
 export default function CharacterViewer({ characterId }: CharacterViewerProps) {
   const { character, enterEditMode } = useCharacter(characterId);
+  const { addNotification } = useUIStore();
 
   if (!character) return null;
 
@@ -26,6 +30,7 @@ export default function CharacterViewer({ characterId }: CharacterViewerProps) {
         <div>
           <h1 className="text-4xl font-bold text-white mb-2">{character.name}</h1>
           <p className="text-gray-400">{character.ancestry} • Nível {character.level}</p>
+          <DiceRoller variant="emoji-dice" label="Teste de Força" iconOnlyIconKey="emoji-dice" iconOnly numberStyle="big" sides={6}  colorClass="red" labelColorClass="red"/>
         </div>
 
         <div className="flex gap-4">
@@ -98,18 +103,54 @@ export default function CharacterViewer({ characterId }: CharacterViewerProps) {
               <div className="flex justify-between">
                 <span className="text-gray-300">Força</span>
                 <span className="text-white font-semibold">{character.strength}</span>
+                 <DiceRoller
+                  sides={20}
+                  modifier={character.strength}
+                  label={`Teste de Força`}
+                  onResult={(result, breakdown) => {
+                    // Ex: salvar no log, mostrar toast, etc.
+                    addNotification({ type: "info", message: `Rolou: ${breakdown} = ${result}` });
+                  }}
+                />
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-300">Agilidade</span>
                 <span className="text-white font-semibold">{character.agility}</span>
+                <DiceRoller
+                  sides={20}
+                  modifier={character.agility}
+                  label={`Teste de Agilidade`}
+                  onResult={(result, breakdown) => {
+                    // Ex: salvar no log, mostrar toast, etc.
+                    addNotification({ type: "info", message: `Rolou: ${breakdown} = ${result}` });
+                  }}
+                />
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-300">Intelecto</span>
                 <span className="text-white font-semibold">{character.intellect}</span>
+                <DiceRoller
+                  sides={20}
+                  modifier={character.intellect}
+                  label={`Teste de Intelecto`}
+                  onResult={(result, breakdown) => {
+                    // Ex: salvar no log, mostrar toast, etc.
+                    addNotification({ type: "info", message: `Rolou: ${breakdown} = ${result}` });
+                  }}
+                />
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-300">Vontade</span>
                 <span className="text-white font-semibold">{character.will}</span>
+                <DiceRoller
+                  sides={20}
+                  modifier={character.will}
+                  label={`Teste de Vontade`}
+                  onResult={(result, breakdown) => {
+                    // Ex: salvar no log, mostrar toast, etc.
+                    addNotification({ type: "info", message: `Rolou: ${breakdown} = ${result}` });
+                  }}
+                />
               </div>
             </div>
           </div>

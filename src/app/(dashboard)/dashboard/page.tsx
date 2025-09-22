@@ -2,6 +2,7 @@ import { auth } from "~/server/auth";
 import { redirect } from "next/navigation";
 import { api } from "~/trpc/server";
 import Link from "next/link";
+import DiceRoller from "~/app/_components/dice/DiceRoller";
 
 export default async function DashboardPage() {
   const session = await auth();
