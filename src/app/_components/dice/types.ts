@@ -1,33 +1,17 @@
 /**
- * types.ts
- *
- * Tipos centralizados para variantes de dado, estilos de número e cores.
- *
- * - DiceVariant: tipos suportados de dado/ícone/visual
- * - NumberStyle: estilos de exibição de número (center, dots, etc)
- * - DiceColorClass, DiceColorText: opções de cor e classes CSS
- * - COLOR_CLASS_MAP, TEXT_COLOR_CLASS_MAP: mapas para conversão de cor
- *
- * Utilizado por: DiceRoller, DiceD6, DiceD20, DiceIcon, etc.
+ * Tipos centrais (refinados) para separar ícones de dados visuais.
+ * - DiceVisualVariant: variantes de “dados” (SVG com número/dots).
+ * - DiceIconKey: já vem do DiceIcons.
+ * - DiceMode: “dice” ou “icon” para roteamento explícito e seguro.
  */
-
-export type DiceVariant =
+export type DiceVisualVariant =
   | "minimal-d6"
   | "classic-d6"
   | "dot-d6"
   | "polygon-d20"
   | "crystal-d20"
   | "rune-d20"
-  | "triangle-d4"
-  | "icon-d6"
-  | "icon-d20"
-  | "icon-d4"
-  | "icon-crystal"
-  | "icon-round"
-  | "emoji-dice"
-  | "svg-d20"
-  | "svg-d6"
-  | "svg-d4";
+  | "triangle-d4";
 
 export type NumberStyle =
   | "center"
@@ -74,3 +58,6 @@ export const TEXT_COLOR_CLASS_MAP = {
 } as const;
 
 export type DiceColorText = keyof typeof TEXT_COLOR_CLASS_MAP;
+
+// Modo de operação explícito para evitar casts perigosos:
+export type DiceMode = "dice" | "icon";
