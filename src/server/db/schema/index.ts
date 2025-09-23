@@ -3,4 +3,5 @@ export * from "./auth";
 export * from "./campaigns";
 export * from "./campaign-notes";
 export * from "./characters";
+export * from "./game-data";
 export * from "./subscriptions";
