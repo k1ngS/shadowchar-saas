@@ -30,6 +30,9 @@ export default function Header() {
             <Link href="/campaigns" className="text-gray-300 hover:text-white transition">
               Campanhas
             </Link>
+            <Link href="/compendium" className="text-gray-300 hover:text-white transition">
+              Compêndio
+            </Link>
           </nav>
 
           {/* User Menu */}
@@ -75,6 +78,9 @@ export default function Header() {
               </Link>
               <Link href="/campaigns" className="text-gray-300 hover:text-white transition py-2">
                 Campanhas
+              </Link>
+              <Link href="/compendium" className="text-gray-300 hover:text-white transition py-2">
+                Compêndio
               </Link>
               <div className="pt-4 border-t border-gray-700">
                 <div className="flex items-center space-x-2 mb-2">
