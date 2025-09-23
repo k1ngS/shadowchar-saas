@@ -4,6 +4,7 @@ import { useCharacter } from '~/hooks/use-character';
 import TalentsSection from './TalentsSection';
 import SpellsSection from './SpellsSection';
 import EquipmentSection from './EquipmentsSection';
+import PathTierSection from './PathTierSection';
 
 interface CharacterEditorProps {
   characterId: number;
@@ -19,7 +20,7 @@ export default function CharacterEditor({ characterId }: CharacterEditorProps) {
     exitEditMode,
     saveCharacter,
     resetForm,
-  } = useCharacter(characterId); // ✅ Agora funciona
+  } = useCharacter(characterId);
 
   if (!formData) return null;
 
@@ -106,6 +107,8 @@ export default function CharacterEditor({ characterId }: CharacterEditorProps) {
             </div>
           </div>
         </div>
+
+        <PathTierSection />
 
         {/* Atributos */}
         <div className="bg-gray-800 rounded-lg p-6">
