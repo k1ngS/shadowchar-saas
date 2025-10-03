@@ -13,16 +13,19 @@ export default function CharacterViewEdit({ characterId }: CharacterViewEditProp
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center py-12">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+      <div className="min-h-screen p-8 flex items-center justify-center">
+        <div className="text-white">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mx-auto mb-4"></div>
+          <p>Carregando fichas...</p>
+        </div>
       </div>
-    );
+    )
   }
 
   if (error || !character) {
     return (
-      <div className="bg-red-600 text-white p-4 rounded-lg">
-        Erro ao carregar personagem: {error?.message}
+      <div className="min-h-screen p-8 flex items-center justify-center">
+        <p className="text-gray-400">Personagem não encontrado</p>
       </div>
     );
   }

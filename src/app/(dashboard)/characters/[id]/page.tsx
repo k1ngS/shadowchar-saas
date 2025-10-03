@@ -15,9 +15,8 @@ export default async function CharacterPage({
 
   const resolvedParams = await params;
   const characterId = parseInt(resolvedParams.id);
-
   if (isNaN(characterId)) {
-    notFound();
+    return notFound();
   }
 
   return <CharacterViewEdit characterId={characterId} />;
